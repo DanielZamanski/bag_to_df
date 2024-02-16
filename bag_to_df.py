@@ -16,7 +16,8 @@ def fetch_all_tablenames(path_to_bag:str):
     conn.close()
     return [table[0] for table in tables]
 
-def fetch_all_dfs(path_to_bag:str,table_names:List[str]):
+def fetch_all_dfs(path_to_bag:str):
+    table_names = fetch_all_tablenames(path_to_bag)
     conn = sqlite3.connect(path_to_bag)
     query = lambda table_name: f"SELECT * FROM {table_name}"
     dfs = {table_name:pd.read_sql_query(query(table_name),conn) for table_name in table_names}
