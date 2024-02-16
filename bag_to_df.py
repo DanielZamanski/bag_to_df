@@ -23,7 +23,6 @@ def fetch_all_dfs(path_to_bag:str):
     dfs = {table_name:pd.read_sql_query(query(table_name),conn) for table_name in table_names}
     return dfs
 
-print("Hello World")
 
 
 
