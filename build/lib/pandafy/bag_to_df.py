@@ -3,6 +3,7 @@ import os
 import subprocess
 import sqlite3
 import sys
+import path_utils
 from typing import List
 
 def fetch_all_tablenames(path_to_bag:str):
